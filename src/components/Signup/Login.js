@@ -16,6 +16,18 @@ import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth"; 
 import { auth } from "../../firebase";
 import styles from "../../assets/InputControl.module.css";
+function Copyright(props) {
+  return (
+    <Typography variant="body2" color="text.secondary" align="center" {...props}>
+      {'Copyright © '}
+      <Link color="inherit" href="https://mui.com/">
+        Your Website
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
  
 const defaultTheme = createTheme();
 
@@ -109,7 +121,8 @@ const MySignIn=()=> {
                   Sign In
                 </Button>
               </Box>
-            </Box> 
+            </Box>
+            <Copyright sx={{ mt: 8, mb: 4 }} />
           </Container>
         </ThemeProvider>
       </div>

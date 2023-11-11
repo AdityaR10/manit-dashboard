@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home/Home"; 
-import Signup from "./components/Login/Signup";
-import MySignIn from "./components/Login/Login";
+import Signup from "./components/Signup/Signup";
+import MySignIn from "./components/Signup/Login";
 import { auth } from "./firebase";
 
 import "./App.css";
