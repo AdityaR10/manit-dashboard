@@ -1,0 +1,35 @@
+.dashborad-body{
+    color:white;
+    background: rgb(27,94,127);
+    background: linear-gradient(79deg, rgba(27,94,127,1) 14%, rgba(129,206,198,1) 84%);
+    flex-direction: row;
+}
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size: 3rem;
+}
+
+@media (max-width:710px)
+{
+    h1{
+        font-size: 3rem;
+    }
+    h2{
+        font-size: 2rem;
+    }
+}
+@media (max-width:498px){
+    .dashborad-body{
+        /* flex-direction: column-reverse; */
+        /* align-items: center; */
+        gap: 20px;
+    }
+    h1{
+        font-size: 2rem;
+    }
+    h2{
+        font-size: 1rem;
+    }
+}

@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth"; 
 import { auth } from "../../firebase";
+import Navbar from '../Navbar/Navbar';
 import styles from "../../assets/InputControl.module.css";
 function Copyright(props) {
   return (
@@ -70,13 +71,18 @@ const MySignIn=()=> {
   };
 
   return (
-      <div style={{paddingTop:10,height:"100vh",backgroundColor:"#0062ff"}}>
-        <ThemeProvider theme={defaultTheme}>
-          <Container component="main" maxWidth="xs"  sx={{
-                backgroundColor:"white", 
-                borderRadius:5,
-                marginTop:10
-              }}>
+      <div style={{height:"100vh", background:" rgb(27,94,127)",
+      background: "linear-gradient(79deg, rgba(27,94,127,1) 14%, rgba(129,206,198,1) 84%)"}}>
+        <Navbar/>
+       <ThemeProvider theme={defaultTheme}  sx={{
+            height:"50%", 
+          }}>
+      <Container component="main" maxWidth="xs"  sx={{
+            backgroundColor:"white", 
+            borderRadius:5, 
+            width:"80vw", 
+            boxShadow:3
+          }}>
             <CssBaseline />
             <Box
               sx={{
