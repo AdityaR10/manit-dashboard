@@ -17,7 +17,7 @@ import { auth } from "../../firebase";
 import styles from "../../assets/InputControl.module.css"; 
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-  
+import Navbar from '../Navbar/Navbar';
 const defaultTheme = createTheme();
 
 function Signup() {
@@ -55,12 +55,16 @@ function Signup() {
   };
    
   return (
-    <div style={{paddingTop:10,height:"100vh",backgroundColor:"#0062ff"}}>
-    <ThemeProvider theme={defaultTheme}>
+    <div style={{height:"100vh",backgroundColor:"#0062ff",width:"100vw"}}>
+       <Navbar/>
+    <ThemeProvider theme={defaultTheme}  sx={{
+            height:"50%", 
+          }}>
       <Container component="main" maxWidth="xs"  sx={{
             backgroundColor:"white", 
-            borderRadius:5,
-            marginTop:10
+            borderRadius:5, 
+            width:"80vw", 
+            boxShadow:3
           }}>
         <CssBaseline />
         <Box

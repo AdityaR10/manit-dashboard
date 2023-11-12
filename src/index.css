@@ -1,6 +1,14 @@
+@font-face {
+  font-family: 'TT Fors';
+  src: url('./fonts/tt_fors/TT\ Fors\ Trial\ Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'TT Fors',sans-serif;
 }
