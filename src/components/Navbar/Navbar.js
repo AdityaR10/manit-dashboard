@@ -41,7 +41,7 @@ const Navbar = () => {
                 <Link style={{textDecoration:"none"}} to="/signup">Signup</Link>  
             </li>
             <li>
-              <NavLink style={{textDecoration:"none"}} to="/profile">contact</NavLink>
+              <NavLink style={{textDecoration:"none"}} to="/">About</NavLink>
             </li>
           </ul>
         </div>
