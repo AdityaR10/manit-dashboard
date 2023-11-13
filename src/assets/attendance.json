@@ -1,0 +1,30 @@
+{
+    "studentName": "Aditya",
+    "subjects": {
+      "AI": {
+        "totalClasses": 40,
+        "attendedClasses": 30  
+      },
+      "DS": {
+        "totalClasses": 40,
+        "attendedClasses": 29   
+      },
+      "Stats": {
+        "totalClasses": 40,
+        "attendedClasses": 40   
+      },
+      "CN": {
+        "totalClasses": 40,
+        "attendedClasses": 31   
+      },
+      "Compiler": {
+        "totalClasses": 40,
+        "attendedClasses": 20   
+      },
+      "OS": {
+        "totalClasses": 40,
+        "attendedClasses": 37  
+      }
+    }
+  }
+  
