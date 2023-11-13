@@ -9,12 +9,16 @@ import {
 import { GiHamburgerMenu } from "react-icons/gi";
 import logo from "../../assets/images/logoManit.jpg"
 import { NavLink } from "react-router-dom";
-import MenuPopupState from "./hamburger"
+import MenuPopupState from "./hamburger";
+import {motion} from "framer-motion";
 
 const Navbar = () => {
   const [showMediaIcons, setShowMediaIcons] = useState(false);
   return (
-    <div className="nav-cont">
+    <motion.div className="nav-cont"
+    initial={{y:-250}}
+    animate={{y:0}}
+    transition={{delay:0.2,type:'spring',duration:10,stiffness:120}}>
       <nav className="main-nav">
         {/* 1st logo part  */}
         <div className="logo">
@@ -56,7 +60,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </motion.div>
   );
 };
 
