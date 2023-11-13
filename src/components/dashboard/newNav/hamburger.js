@@ -29,8 +29,8 @@ export default function MenuPopupState() {
           <Menu {...bindMenu(popupState)}>
             <MenuItem onClick={popupState.close}><Link style={{textDecoration:"none"}} to={`/user/${userName}/profile`}>Profile</Link> </MenuItem>
             <MenuItem onClick={popupState.close}><Link style={{textDecoration:"none"}} to={`/user/${userName}/time-table`}>Time Table</Link> </MenuItem>
-            <MenuItem onClick={popupState.close}><Link style={{textDecoration:"none"}} to={`/user/${userName}/attendence`}>Attendence</Link> </MenuItem>
-            <MenuItem onClick={popupState.close}><Link style={{textDecoration:"none"}} to={`/user/${userName}/attendence`}>Results</Link> </MenuItem>
+            <MenuItem onClick={popupState.close}><Link style={{textDecoration:"none"}} to={`/user/${userName}/attendance`}>Attendence</Link> </MenuItem>
+            <MenuItem onClick={popupState.close}><Link style={{textDecoration:"none"}} to={`/user/${userName}/results`}>Results</Link> </MenuItem>
           </Menu>
         </React.Fragment>
       )}
