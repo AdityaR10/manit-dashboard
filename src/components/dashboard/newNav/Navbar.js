@@ -7,11 +7,19 @@ import {
   FaYoutubeSquare,
 } from "react-icons/fa";
 import { GiHamburgerMenu } from "react-icons/gi";
-import logo from "../../assets/images/logoManit.jpg"
+import logo from "../../../assets/images/logoManit.jpg"
 import { NavLink } from "react-router-dom";
 import MenuPopupState from "./hamburger"
-
-const Navbar = () => {
+import { auth } from "../../../firebase";
+const NewNavbar = () => {
+  const [userName,setName]=React.useState("null");
+  React.useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setName(user.displayName); 
+    } 
+    });
+  }, []);
   const [showMediaIcons, setShowMediaIcons] = useState(false);
   return (
     <div className="nav-cont">
@@ -22,7 +30,7 @@ const Navbar = () => {
             <img src={logo} style={{width:50}}></img>
           <h2>
              MANIT Dashboard
-          </h2>
+          </h2> 
         </div>
 
         {/* 2nd menu part  */}
@@ -32,27 +40,27 @@ const Navbar = () => {
           }>
           <ul>
             <li>
-              <NavLink style={{textDecoration:"none"}} to="/">Home</NavLink>
+            <Link style={{textDecoration:"none"}} to={`/user/${userName}/profile`}>Profile</Link>
             </li>
             <li>
-                <Link style={{textDecoration:"none"}} to="/signin">Signin</Link> 
+            <Link style={{textDecoration:"none"}} to={`/user/${userName}/time-table`}>Time Table</Link> 
             </li>
             <li>
-                <Link style={{textDecoration:"none"}} to="/signup">Signup</Link>  
+            <Link style={{textDecoration:"none"}} to="/ ">Attendence</Link>
             </li>
             <li>
-              <NavLink style={{textDecoration:"none"}} to="/profile">contact</NavLink>
+            <Link style={{textDecoration:"none"}} to="/ ">Results</Link>
             </li>
           </ul>
         </div>
 
         {/* 3rd social media links */}
-        <div className="social-media">
+        <div className="social-media"><div className= "full-screen"> {userName} </div>
           <div className="hamburger-menu">
             {/* <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
               <GiHamburgerMenu />
-            </a> */}
-            <MenuPopupState/>
+            </a> */} 
+            <MenuPopupState name={userName}/>
           </div>
         </div>
       </nav>
@@ -60,4 +68,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NewNavbar;

@@ -41,6 +41,7 @@ function Signup() {
     setSubmitButtonDisabled(true);
     createUserWithEmailAndPassword(auth, values.email, values.pass)
       .then(async (res) => {
+        console.log(res);
         setSubmitButtonDisabled(false);
         const user = res.user;
         await updateProfile(user, {
@@ -55,7 +56,7 @@ function Signup() {
   };
    
   return (
-    <div style={{height:"100vh",backgroundColor:"#0062ff",width:"100vw"}}>
+    <div style={{height:"100vh",background: "linear-gradient(79deg, rgb(27, 94, 127) 14%, rgb(129, 206, 198) 84%)",width:"100vw"}}>
        <Navbar/>
     <ThemeProvider theme={defaultTheme}  sx={{
             height:"50%", 
@@ -111,10 +112,6 @@ function Signup() {
             }>
                 
             </input>
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
             <Button
               disabled={submitButtonDisabled}
               type="submit"

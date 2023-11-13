@@ -17,18 +17,6 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
 import Navbar from '../Navbar/Navbar';
 import styles from "../../assets/InputControl.module.css";
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
  
 const defaultTheme = createTheme();
 
@@ -61,8 +49,8 @@ const MySignIn=()=> {
     signInWithEmailAndPassword(auth, values.email, values.pass)
       .then(async (res) => {
         setSubmitButtonDisabled(false);
-        
-        navigate("/");
+        const username=auth.currentUser.displayName;
+        navigate(`/user/${username}`);
       })
       .catch((err) => {
         setSubmitButtonDisabled(false);
@@ -112,10 +100,7 @@ const MySignIn=()=> {
                 }>
                     
                 </input>
-                <FormControlLabel
-                  control={<Checkbox value="remember" color="primary" />}
-                  label="Remember me"
-                />
+                
                 <Button
                   disabled={submitButtonDisabled}
                   type="submit"
@@ -127,8 +112,7 @@ const MySignIn=()=> {
                   Sign In
                 </Button>
               </Box>
-            </Box>
-            <Copyright sx={{ mt: 8, mb: 4 }} />
+            </Box> 
           </Container>
         </ThemeProvider>
       </div>
