@@ -9,6 +9,7 @@ import { styled } from '@mui/material/styles';
 import { auth } from "../../firebase";
 import { signOut } from 'firebase/auth';
 import { useNavigate } from "react-router-dom";
+import studentData from "../../assets/attendance.json"
 const boxStyles={
   makeTranparent:"rgb(0,0,0,0.3);",
   makeLight:"rgb(255,255,255,0.7);"
@@ -26,6 +27,19 @@ const Item = styled(Paper)(({ theme }) => ({
   justifyContent:"center",
   flexDirection:"column"
 }));
+const SubjectRow = ({ subject, totalClasses, attendedClasses }) => {
+  const attendancePercentage = (attendedClasses / totalClasses) * 100;
+  const isBelowThreshold = attendancePercentage < 75;
+  const textColor = isBelowThreshold ? 'red' : 'white';
+
+  return (
+    <div style={{ display: 'flex', borderBottom: '1px solid #ccc', padding: '10px', color: textColor }}>
+      <div style={{ flex: 1 }}>{subject}</div>
+      <div style={{ flex: 1 }}>{totalClasses}</div>
+      <div style={{ flex: 1 }}>{attendedClasses}</div>
+    </div>
+  );
+};
 
 function Attend() {
   const [userData,setData]=useState("null");
@@ -53,40 +67,33 @@ useEffect(() => {
     alert(error);
   });
   }
-  return (
-    <div> 
+  const { studentName, subjects } = studentData;
+ 
+    
+    return (
+      <div> 
       <NewNavbar/>
       <div className="dashboard-body" style={{width:"100vw",height:"100vh",paddingTop:"5vh",display:"flex",flexDirection: "column",alignItems:"center",backgroundImage:`url(${manit})`,backgroundSize:"cover",backgroundRepeat:"no-repeat"}}>
-
-         {/* <Box sx={{boxShadow: 3,width:"80vw",maxWidth:"600px",
-         display:"flex",alignItems:"center",textAlign:"center",height:"50vh",maxHeight:"600px",backgroundColor:"white",borderRadius:10,padding:2,background:boxStyles.makeTranparent }}>
-         <Grid container rowSpacing={{ xs: 1, sm: 2, md: 3 }} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-         <Grid item xs={12}>
-          <Item sx={{height:"100px",fontSize:"15px"}}>
-            <div><h1 style={{fontSize:"20px"}}>Username : {name} </h1></div>
-            <div>Email : {mail}</div>
-            <div>User Id : {userData}</div>
-            </Item>
-        </Grid>
-        <Grid item xs={4}>
-          <Item sx={{height:"25px",fontSize:"15px"}} onClick={signOutFunc}>Sign Out</Item>
-        </Grid>
-        <Grid item xs={12}>
-          <Item  sx={{height:"50px"}}>
-            B-Tech, Computer Science Engineering
-          </Item>
-        </Grid>
-        <Grid item xs={12}>
-          <Item sx={{height:"50px"}}>
-            3rd Year 5th sem
-          </Item>
-        </Grid>
-      </Grid>
-        </Box> */}
-         
+      <div style={{backgroundColor:"white",background:"rgb(0,0,0,0.3)",padding:"10px",borderRadius:"20px"}}>
+        <h2>{studentName}'s Attendance</h2>
+        <div style={{ display: 'flex', borderBottom: '1px solid #ccc', padding: '10px', fontWeight: 'bold' }}>
+          <div style={{ flex: 1 }}>Subject</div>
+          <div style={{ flex: 1 }}>Total Classes</div>
+          <div style={{ flex: 1 }}>Attended Classes</div>
+        </div>
+        {Object.entries(subjects).map(([subject, data]) => (
+          <SubjectRow key={subject} subject={subject} totalClasses={data.totalClasses} attendedClasses={data.attendedClasses} />
+        ))}
+      </div> 
+        <div style={{margin:"30px"}}>
+          <h3>You need to cover for the subjects with attendance marked as red. </h3>
+        </div>  
       </div>
     </div> 
-  );
+      // ======================================================================
+     
+    );
+    
 }
 
 export default Attend;
