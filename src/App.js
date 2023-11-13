@@ -8,6 +8,7 @@ import UserDashboard from "./components/dashboard/dashboard";
 import Profile from "./components/profile/Profile";
 import TimeTab from "./components/timetable/Time";
 import Attend from "./components/attendance/attend";
+import Result from "./components/result/result";
 import { auth } from "./firebase";
 
 import "./App.css";
@@ -31,7 +32,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/user/:username/profile" element={<Profile/>}/>
           <Route path="/user/:username/time-table" element={<TimeTab/>}/>
-          <Route path="/user/:username/attendence" element={<Attend/>}/>
+          <Route path="/user/:username/attendance" element={<Attend/>}/>
+          <Route path="/user/:username/results" element={<Result/>}/>
           <Route path="/user/:username" element={<UserDashboard />} />
           <Route path="/" element={<Home />} />
           <Route path="/signin" element={<MySignIn />} />

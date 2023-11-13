@@ -1,0 +1,26 @@
+{
+    "studentName": "Adita",
+    "semesters": [
+      {
+        "semesterNumber": 1,
+        "cgpa": 7.0,
+        "sgpa": 7.0
+      },
+      {
+        "semesterNumber": 2,
+        "cgpa": 7.5,
+        "sgpa": 7.25
+      },
+      {
+        "semesterNumber": 3,
+        "cgpa": 7.28,
+        "sgpa": 7.6
+      },
+      {
+        "semesterNumber": 4,
+        "cgpa": 7.46,
+        "sgpa": 8.0
+      }
+    ]
+  }
+  

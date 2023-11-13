@@ -46,10 +46,10 @@ const NewNavbar = () => {
             <Link style={{textDecoration:"none"}} to={`/user/${userName}/time-table`}>Time Table</Link> 
             </li>
             <li>
-            <Link style={{textDecoration:"none"}} to="/ ">Attendence</Link>
+            <Link style={{textDecoration:"none"}} to={`/user/${userName}/attendance`}>Attendence</Link>
             </li>
             <li>
-            <Link style={{textDecoration:"none"}} to="/ ">Results</Link>
+            <Link style={{textDecoration:"none"}} to={`/user/${userName}/results`}>Results</Link>
             </li>
           </ul>
         </div>
