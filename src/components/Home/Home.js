@@ -23,7 +23,7 @@ function Home() {
   }, []);
   return (
     <div> 
-      {newNav===true?<NewNavbar/> : <Navbar/>}
+      <Navbar/>
       <div className="dashboard-body" style={{width:"100vw",height:"100vh",paddingTop:"5vh",display:"flex",flexDirection: "column",alignItems:"center",backgroundImage:`url(${manit})`,backgroundSize:"cover",backgroundRepeat:"no-repeat"}}>
         <Box sx={{boxShadow: 3,width:"80vw",textAlign:"center",height:"fit-content",backgroundColor:"white",marginLeft:"2.5vw",borderRadius:10,padding:2,background:boxStyles.makeTranparent }}>
            <motion.h1
